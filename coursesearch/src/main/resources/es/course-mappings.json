@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "_class": {
+      "type": "keyword",
+      "index": false,
+      "doc_values": false
+    },
+    "category": { "type": "keyword" },
+    "description": { "type": "text" },
+    "gradeRange": { "type": "keyword" },
+    "id": {
+      "type": "keyword",
+      "ignore_above": 256
+    },
+    "maxAge": { "type": "integer" },
+    "minAge": { "type": "integer" },
+    "nextSessionDate": {
+      "type": "date",
+      "format": "date_optional_time||epoch_millis"
+    },
+    "price": { "type": "double" },
+    "title": { "type": "text" },
+    "titleSuggest": {
+      "type": "completion",
+      "max_input_length": 100
+    },
+    "type": { "type": "keyword" }
+  }
+}
