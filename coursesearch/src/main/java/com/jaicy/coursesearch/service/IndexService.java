@@ -30,11 +30,15 @@ public class IndexService {
 	public List<Course> reindexFromResource() throws Exception {
         ClassPathResource resource = new ClassPathResource("courses.json");
         try (InputStream is = resource.getInputStream()) {
-            List<Course> products = mapper.readValue(is, new TypeReference<>() {});
+            List<Course> courses = mapper.readValue(is, new TypeReference<>() {});
             repo.deleteAll();
-            repo.saveAll(products);
-            return products;
+			  for (Course c : courses) {
+                c.setTitleSuggest(new Completion(new String[] { c.getTitle() }));
+            }
+            repo.saveAll(courses);
+            return courses;
         }
     }
 
 }
+
