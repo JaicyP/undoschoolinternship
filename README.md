@@ -166,6 +166,8 @@ Response:
    [
     "Physics Experiments"
   ]
+#### Note
+Both Assignment A and Assignment B are done on the same project coursesearch
 
 
 
