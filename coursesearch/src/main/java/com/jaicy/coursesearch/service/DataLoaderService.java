@@ -39,7 +39,7 @@ public class DataLoaderService implements CommandLineRunner{
 	            try (InputStream is = resource.getInputStream()) {
 	                List<Course> courses = objectMapper.readValue(is, new TypeReference<>() {});
 
-	                // IMPORTANT: set completion inputs from title (and optionally category)
+	               
 	                for (Course c : courses) {
 	                    c.setTitleSuggest(new Completion(new String[] { c.getTitle() }));
 	                }
@@ -52,3 +52,4 @@ public class DataLoaderService implements CommandLineRunner{
 	    }
 
 }
+
